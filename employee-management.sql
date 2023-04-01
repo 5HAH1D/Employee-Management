@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2023 at 01:55 PM
+-- Generation Time: Apr 01, 2023 at 09:53 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `empdata`
+-- Table structure for table `emp_data`
 --
 
-CREATE TABLE `empdata` (
+CREATE TABLE `emp_data` (
   `ID` int(11) NOT NULL,
   `fName` varchar(20) NOT NULL,
   `lName` varchar(20) NOT NULL,
@@ -39,10 +39,10 @@ CREATE TABLE `empdata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `empdata`
+-- Dumping data for table `emp_data`
 --
 
-INSERT INTO `empdata` (`ID`, `fName`, `lName`, `Gender`, `JobPosition`, `Contact`, `Email`, `Address`) VALUES
+INSERT INTO `emp_data` (`ID`, `fName`, `lName`, `Gender`, `JobPosition`, `Contact`, `Email`, `Address`) VALUES
 (1, 'Shahid', 'Saeed', 'Male', 'Senior Developer', '92300000000', 'example@123', 'Multan'),
 (2, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
 (3, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
@@ -62,29 +62,31 @@ INSERT INTO `empdata` (`ID`, `fName`, `lName`, `Gender`, `JobPosition`, `Contact
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userlogin`
+-- Table structure for table `user_login`
 --
 
-CREATE TABLE `userlogin` (
-  `user` varchar(20) NOT NULL,
+CREATE TABLE `user_login` (
+  `privilege` varchar(10) NOT NULL,
+  `user_name` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `userlogin`
+-- Dumping data for table `user_login`
 --
 
-INSERT INTO `userlogin` (`user`, `password`) VALUES
-('Admin', 'Admin@123');
+INSERT INTO `user_login` (`privilege`, `user_name`, `password`) VALUES
+('Admin', 'Admin', 'adam@123'),
+('User', 'User1', 'user@123');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `empdata`
+-- Indexes for table `emp_data`
 --
-ALTER TABLE `empdata`
+ALTER TABLE `emp_data`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -92,9 +94,9 @@ ALTER TABLE `empdata`
 --
 
 --
--- AUTO_INCREMENT for table `empdata`
+-- AUTO_INCREMENT for table `emp_data`
 --
-ALTER TABLE `empdata`
+ALTER TABLE `emp_data`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
