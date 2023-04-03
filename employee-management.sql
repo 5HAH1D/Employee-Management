@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2023 at 09:53 AM
+-- Generation Time: Apr 03, 2023 at 04:50 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `emp_data` (
-  `ID` int(11) NOT NULL,
+  `ID` varchar(10) NOT NULL,
   `fName` varchar(20) NOT NULL,
   `lName` varchar(20) NOT NULL,
   `Gender` varchar(10) NOT NULL,
@@ -43,21 +43,10 @@ CREATE TABLE `emp_data` (
 --
 
 INSERT INTO `emp_data` (`ID`, `fName`, `lName`, `Gender`, `JobPosition`, `Contact`, `Email`, `Address`) VALUES
-(1, 'Shahid', 'Saeed', 'Male', 'Senior Developer', '92300000000', 'example@123', 'Multan'),
-(2, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(3, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(4, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(5, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(6, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(7, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(8, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(9, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(10, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(11, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(12, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(13, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(14, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]'),
-(15, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]');
+('EMP01', 'Shahid', 'Saeed', 'Male', 'Senior Developer', '92300000000', 'example@123', 'Multan'),
+('EMP02', 'fname', 'lname', 'Male', 'Accountant', '92300000000', 'example@1234', 'Multan'),
+('EMP03', 'fname1', 'lname1', 'Male', 'Accountant', '92311111111', 'example@12', 'Lahore'),
+('EMP04', 'fname2', 'lname2', 'Male', 'Accountant', '92322222222', 'employee4@123', 'Islamabad');
 
 -- --------------------------------------------------------
 
@@ -78,26 +67,6 @@ CREATE TABLE `user_login` (
 INSERT INTO `user_login` (`privilege`, `user_name`, `password`) VALUES
 ('Admin', 'Admin', 'adam@123'),
 ('User', 'User1', 'user@123');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `emp_data`
---
-ALTER TABLE `emp_data`
-  ADD PRIMARY KEY (`ID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `emp_data`
---
-ALTER TABLE `emp_data`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
