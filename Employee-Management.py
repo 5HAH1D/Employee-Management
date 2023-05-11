@@ -59,13 +59,15 @@ class AdminLogin:
         else:
             return False
 
-    def toggle(self, check, p_entry):
+    @staticmethod
+    def toggle(check, p_entry):
         """
         If the checkbox is checked, then the password entry will show the password as asterisks,
         otherwise it will show the password as plain text
         """
         if check:
-            # If the condition is true, then the password entry widget will show '*' instead of the actual password characters
+            # If the condition is true, then the password entry widget will show '*' instead of the actual password
+            # characters
             p_entry.configure(show='*')
         else:
             # If the condition is false, then the password entry widget will show the actual password characters
@@ -610,9 +612,10 @@ class AdminPanel:
         # depending on the length of the password
         pass_value.trace(mode='w', callback=lambda *args: self.validate_password(pass_value.get(), change_btn, *args))
 
-    def validate_password(self, *args):
+    @staticmethod
+    def validate_password(*args):
         """
-        This function is a callback function for the password field's textvariable.
+        This function is a callback function for the password field's text-variable.
         It enables/disables the change button based on the length of the password.
         """
         pass_ = args[0]
@@ -814,39 +817,26 @@ def main(root):
     root.mainloop()
 
 
-# Define the entry point for the script
 if __name__ == '__main__':
 
-    # Try to connect to the database, and handle any potential errors
     try:
-        # Connect to the MySQL database
         connection = mysql.connector.connect(host='localhost', user='root', password='', database='employee-management')
     except mysql.connector.errors.ProgrammingError:
-        # Handle the case where the database doesn't exist, or the credentials are wrong
         tkinter.messagebox.showerror("Database ERROR!", "1- Database 'employee-management' Doesn't Exists\n"
                                                         "2- Wrong 'user' OR 'password'\n"
                                                         "Try to Check Database and Credentials OR Contact the Developer")
-        # Exit the program
         exit()
     except mysql.connector.errors.InterfaceError:
-        # Handle the case where the connection to the database cannot be established
         tkinter.messagebox.showerror("Connection ERROR!", "Unable to Connect to Database 'employee-management'\n"
                                                           "Try to Check Connection and Retry")
-        # Exit the program
         exit()
     except Exception as error:
-        # Handle any other errors that may occur
         tkinter.messagebox.showerror("ERROR!", f"An Unhandled Error!\n{error}\nPlease Contact the Developer")
-        # Exit the program
         exit()
 
-    # Set the appearance mode and color theme for the tkinter application
     ctk.set_appearance_mode('dark')
     ctk.set_default_color_theme('blue')
 
-    # Create the tkinter application
     app = ctk.CTk()
     app.configure(background='grey')
-
-    # Call the main() function of the app
     main(root=app)
