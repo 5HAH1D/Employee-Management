@@ -177,7 +177,7 @@ class AdminPanel:
         self.frame = ctk.CTkFrame(self.main)
 
         # Load an image from a file and create a Tkinter-compatible image object
-        self.photo = ctk.CTkImage(Image.open('images/home_image.png'), size=(470, 300))
+        self.photo = ctk.CTkImage(Image.open("images/home_image.png"), size=(470, 300))
 
         # Create a label and pack it into the frame, displaying the image and hiding any text
         ctk.CTkLabel(self.frame, image=self.photo, text='').pack(fill='both', expand=True)
@@ -792,7 +792,7 @@ def main(root):
     # Set the window geometry, title, and icon
     root.geometry(f'{app_width}x{app_height}+{int(x)}+{int(y)}')
     root.resizable(False, False)
-    root.iconbitmap('images/icon.ico')
+    root.iconbitmap("images/icon.ico")
     root.title('Admin Login')
 
     # Create a Tkinter BooleanVar to track the password visibility state
